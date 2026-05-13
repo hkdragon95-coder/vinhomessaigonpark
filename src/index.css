@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  
+  --color-gold: #C5A059;
+  --color-gold-light: #D4B67C;
+  --color-navy: #8B0000;
+  --color-navy-dark: #5C0000;
+  --color-luxury-bg: #F5F2ED;
+  --color-luxury-text: #1A1A1A;
+}
+
+@layer base {
+  body {
+    @apply bg-luxury-bg text-luxury-text selection:bg-gold selection:text-white;
+  }
+}
+
+@layer components {
+  .glass-header {
+    @apply bg-navy/80 backdrop-blur-md border-b border-white/10;
+  }
+  
+  .luxury-button {
+    @apply relative px-8 py-3 bg-gold text-white font-medium uppercase tracking-widest text-xs transition-all duration-300 hover:bg-gold-light overflow-hidden;
+  }
+  
+  .luxury-button-outline {
+    @apply relative px-8 py-3 border border-gold text-gold font-medium uppercase tracking-widest text-xs transition-all duration-300 hover:bg-gold hover:text-white;
+  }
+  
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl text-navy mb-6;
+  }
+  
+  .luxury-card {
+    @apply bg-white border border-black/5 hover:border-gold/30 transition-all duration-500 shadow-sm hover:shadow-xl;
+  }
+}
+
+@keyframes scroll {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-floating {
+  animation: scroll 2s infinite ease-in-out;
+}
